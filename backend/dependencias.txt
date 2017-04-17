@@ -1,0 +1,18 @@
+
+
+npm install express body-parser mongoose node-restful mongoose-paginate lodash express-query-int pm2 --save
+
+npm install nodemon --save-dev
+
+
+O que é/ o que faz?
+
+express:
+body-parser:
+mongoose:
+node-restful:
+mongoose-paginate:
+lodash:
+express-query-int:
+pm2:
+nodemon:
