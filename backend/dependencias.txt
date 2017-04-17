@@ -2,6 +2,8 @@
 
 npm install express body-parser mongoose node-restful mongoose-paginate lodash express-query-int pm2 --save
 
+npm install passport passport-local passport-facebook passport-twitter passport-twitter passport-github passport-google-oauth underscore --save
+
 npm install nodemon --save-dev
 
 
@@ -16,3 +18,11 @@ lodash:
 express-query-int:
 pm2:
 nodemon:
+passport:
+passport-local:
+passport-facebook:
+passport-twitter:
+passport-twitter:
+passport-github:
+passport-google-oauth:
+underscore:

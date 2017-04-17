@@ -1,94 +1,94 @@
 /**
- * Module dependencies.
+ * Dependencias
  */
-var mongoose = require('mongoose'),
-    passport = require('passport'),
-    User = mongoose.model('User');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const Usuario = mongoose.model('Usuario');
 
 /**
- * Signup
+ * Cadastrar
  */
 exports.signup = function(req, res) {
-    var user = new User(req.body);
-    var message = null;
+  var usuario = new Usuario(req.body);
+  var msg = null;
 
-    user.provider = 'local';
-    user.save(function(err) {
-        if (err) {
-            switch (err.code) {
-                case 11000:
-                case 11001:
-                    message = 'Username already exists';
-                    break;
-                default:
-                    message = 'Please fill all the required fields';
-            }
+  usuario.provider = 'local';
+  usuario.save(function(err) {
+    if (err) {
+      switch (err.code) {
+        case 11000:
+        case 11001:
+          msg = 'Usuario já existe';
+          break;
+        default:
+          msg = 'Preencher todos os campos obrigatórios';
+      }
 
-            return res.send(400, {
-                message: message
-            });
-        }
-        req.logIn(user, function(err) {
-            if (err) {
-                res.send(400, err);
-            } else {
-                res.jsonp(user);
-            }
-        });
+      return res.send(400, {
+        msg: msg
+      });
+    }
+    req.logIn(usuario, function(err) {
+      if (err) {
+        res.send(400, err);
+      } else {
+        res.jsonp(usuario);
+      }
     });
+  });
 };
 
 /**
- * Signin after passport authentication
+ * Fazer login após a autenticação de passaporte
  */
 exports.signin = function(req, res, next) {
-    passport.authenticate('local', function(err, user, info) {
-        if (err || !user) {
-            res.send(400, info);
+  passport.authenticate('local', function(err, usuario, info) {
+    if (err || !usuario) {
+      res.send(400, info);
+    } else {
+      req.logIn(usuario, function(err) {
+        if (err) {
+          res.send(400, err);
         } else {
-            req.logIn(user, function(err) {
-                if (err) {
-                    res.send(400, err);
-                } else {
-                    res.jsonp(user);
-                }
-            });
+          res.jsonp(usuario);
         }
-    })(req, res, next);
+      });
+    }
+  })(req, res, next);
 };
 
 /**
- * Signout
+ * Logout
  */
 exports.signout = function(req, res) {
-    req.logout();
-    res.redirect('/');
+  req.logout();
+  res.redirect('/');
 };
 
 /**
  * Auth callback
  */
 exports.authCallback = function(req, res, next) {
-    res.redirect('/');
+  res.redirect('/');
 };
 
 /**
- * Send User
+ * Enviar Usuario
  */
 exports.me = function(req, res) {
-    res.jsonp(req.user || null);
+  res.jsonp(req.usuario || null);
 };
 
 /**
- * Find user by id
+ * Procurar usuário por ID
  */
-exports.user = function(req, res, next, id) {
-    User.findOne({
-        _id: id
-    }).exec(function(err, user) {
-        if (err) return next(err);
-        if (!user) return next(new Error('Failed to load User ' + id));
-        req.profile = user;
-        next();
-    });
+exports.usuario = function(req, res, next, id) {
+  Usuario.findOne({
+    _id: id
+  }).exec(function(err, usuario) {
+    if (err) return next(err);
+    if (!usuario) return next(new Error('Falha ao carregar usuário. ID: ' + id));
+    req.profile = usuario;
+    next();
+  });
 };
