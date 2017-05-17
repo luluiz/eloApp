@@ -1,0 +1,49 @@
+html {
+    background-color: #ecf0f5;
+}
+
+/*Variáveis Globais*/
+
+:root {
+    --laranja: #E7711D;
+    --laranjaClaro: #F7941D;
+    --laranjaEscuro: #B66226;
+    --fundo: #FBE5D6;
+    --borda: #464243;
+}
+
+.main-footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+
+#toast-container {
+    top: 110px;
+    margin-right: 10px;
+}
+
+.table-actions {
+    width: 140px;
+}
+
+/*
+.skin-blue .main-header .navbar {
+    background-color: var(--laranja);
+}
+
+.skin-blue .main-header .logo {
+    background-color: var(--laranja);
+}
+
+.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side  {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    background-color: var(--borda);
+}
+
+.skin-blue .content-header, .skin-blue .content.ng-scope {
+    background: var(--fundo);
+}
+*/
