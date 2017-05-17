@@ -20,12 +20,12 @@ gulp.task('server', ['watch'], function() {
 
 //declarando a task deps.js
 gulp.task('watch', function() {
-    watch('app/**/*.html', () => gulp.start('app.html')); //se houver alterações html
+    watch('app_modulos/**/*.html', () => gulp.start('app.html')); //se houver alterações html
     //chame somente o app.html
-    watch('app/**/*.css', () => gulp.start('app.css')); //se houver alterações CSS
+    watch('app_modulos/**/*.css', () => gulp.start('app.css')); //se houver alterações CSS
     //chame somente o app.css
-    watch('app/**/*.js', () => gulp.start('app.js')); //se houver alterações JS
+    watch('app_modulos/**/*.js', () => gulp.start('app.js')); //se houver alterações JS
     //chame somente o app.js
-    watch('assets/**/*.*', () => gulp.start('app.assets')); //se houver alterações assets
+    watch('app_modulos/assets/**/*.*', () => gulp.start('app.assets')); //se houver alterações assets
     //chame somente o app.assets
 });
