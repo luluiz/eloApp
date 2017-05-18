@@ -12,8 +12,6 @@
       const url = 'http://localhost:3003/api/usuarios';
 
       vm.onSubmit = function (registrosUsuario) {
-         console.log(vm.registrosUsuario);
-
          // $http.post(url, vm.registrosUsuario).then(function (response) {  // Lembrar de injetetar dependencia $http em cima
          usuarioService.create(url, vm.registrosUsuario).then(function (response) {
             if (response.data.success) {

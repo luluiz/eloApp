@@ -62,47 +62,26 @@ module.exports.login = function (req, res) {
             message: 'Não foi possível autenticar o usuário. E-mail não cadastrado.'
          });
       } else if (usuario) {
-         var senhaValida = usuario.validPassword(req.body.senha);
-         if (!senhaValida) {
-            res.json({
-               success: false,
-               message: 'Não foi possível autenticar o usuário, senha inválida.'
-            });
+
+         if (req.body.senha) {
+            var senhaValida = usuario.compararSenhas(req.body.senha);
+            if (!senhaValida) {
+               res.json({
+                  success: false,
+                  message: 'Não foi possível autenticar o usuário, senha inválida.'
+               });
+            } else {
+               res.json({
+                  success: true,
+                  message: 'Usuário autenticado com sucesso.'
+               });
+            }
          } else {
             res.json({
-               success: true,
-               message: 'Usuário autenticado com sucesso.'
+               success: false,
+               message: 'Digite a senha.'
             });
          }
       }
    });
 };
-
-// module.exports.login = function (req, res) {
-//    console.log('ENTROU AUTENTICACAOSERVICE.LOGIN BACKEND');
-//    passport.authenticate('local', function (err, usuario, info) {
-//       var token;
-//       console.log(usuario);
-//       console.log(info);
-//
-//       // If Passport throws/catches an error
-//       if (err) {
-//          console.log('ERRO 1');
-//          res.status(404).json(err);
-//          return;
-//       }
-//
-//       // Se usuário for encontrado
-//       if (usuario) {
-//          token = usuario.generateJwt();
-//          res.status(200);
-//          res.json({
-//             "token": token
-//          });
-//       } else {
-//          // Se usuário não for encontrado
-//          console.log('ERRO 2');
-//          res.status(401).json(info);
-//       }
-//    })(req, res);
-// };

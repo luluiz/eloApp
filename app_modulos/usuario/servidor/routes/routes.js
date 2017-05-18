@@ -27,9 +27,9 @@ module.exports = function (server) {
    //  server.use(passport.initialize());
 
    // autenticacao
-    const autenticacaoService = require('../services/autenticacaoService');
-    router.post('/usuarios', autenticacaoService.registrar);
-    router.post('/login', autenticacaoService.login);
+   const autenticacaoService = require('../services/autenticacaoService');
+   router.post('/usuarios', autenticacaoService.registrar);
+   router.post('/login', autenticacaoService.login);
 
    return server;
 };

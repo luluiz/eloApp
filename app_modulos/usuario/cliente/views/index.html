@@ -23,14 +23,14 @@
 
           <div class="login-box-body">
                <!-- Direcionando para o index.html, no caso, o dashboard -->
-               <form ng-submit="logCtrl.onSubmit()">
+               <form ng-submit="logCtrl.fazerLogin(dadosLogin)" action="/index2.html">
                     <!-- <form action="../../../app/index.html" method="post"> -->
                     <div class="form-group has-feedback">
-                         <input id="email" type="email" class="form-control" placeholder="Email" ng-model="logCtrl.credentials.email">
+                         <input id="email" type="email" class="form-control" placeholder="Email" ng-model="logCtrl.dadosLogin.email">
                          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                         <input id="senha" type="password" class="form-control" placeholder="Senha" ng-model="logCtrl.credentials.senha">
+                         <input id="senha" type="password" class="form-control" placeholder="Senha" ng-model="logCtrl.dadosLogin.senha">
                          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                     <div class="row">
@@ -43,7 +43,7 @@
                               </div>
                          </div>
                          <div class="col-xs-12">
-                              <button href="#!/index2.html" type="submit" class="btn bg-orange btn-block">Entrar</button>
+                              <button type="submit" class="btn bg-orange btn-block">Entrar</button>
                          </div>
                     </div>
                </form>

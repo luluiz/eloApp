@@ -3,30 +3,27 @@
       '$http',
       '$location',
       'msgs',
-      'autenticacao',
+      'usuarioService',
       LoginController
    ]);
 
-   function LoginController($http, $location, msgs, autenticacao) {
+   function LoginController($http, $location, msgs, usuarioService) {
       const vm = this;
       const url = 'http://localhost:3003/api/login';
 
-      vm.credentials = {
-         email: "",
-         senha: ""
-      };
+      vm.fazerLogin = function (dadosLogin) {
 
-      vm.onSubmit = function () {
-         console.log(vm.credentials);
-         return $http.post(url, vm.credentials).then(function (response) {
-            console.log('LOGOU');
-            autenticacao.saveToken(response.token);
-            msgs.addSuccess('Login realizado com sucesso!');
+         //  return $http.post(url, vm.credentials).then(function (response) {
+         usuarioService.login(url, vm.dadosLogin).then(function (response) {
+            if (response.data.success) {
+               msgs.addSuccess('Login realizado com sucesso!');
+            } else {
+               msgs.addError(response.data.message);
+            }
+
          }).catch(function (response) {
-            console.log('ERROOO');
-            msgs.addError(response.data.errors);
+            msgs.addError(response.data.message);
          });
-
       };
    }
 })();
