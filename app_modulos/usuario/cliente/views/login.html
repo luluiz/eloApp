@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<div class="login-box" ng-controller="LoginCtrl as logCtrl">
+     <div class="login-logo">
+          <!-- <a><b>Plataforma</b> ELO</a> -->
+          <p>
+               <img src="assets/elo.png" height="100" width="200">
+          </p>
+     </div>
+
+     <div class="login-box-body">
+          <!-- Direcionando para o index.html, no caso, o dashboard -->
+          <form ng-submit="logCtrl.fazerLogin(dadosLogin)" action="/#!/painel">
+               <!-- <form action="../../../app/index.html" method="post"> -->
+               <div class="form-group has-feedback">
+                    <input id="email" type="email" class="form-control" placeholder="Email" ng-model="logCtrl.dadosLogin.email">
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+               </div>
+               <div class="form-group has-feedback">
+                    <input id="senha" type="password" class="form-control" placeholder="Senha" ng-model="logCtrl.dadosLogin.senha">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+               </div>
+               <div class="row">
+                    <div class="col-xs-10">
+                         <div class="checkbox icheck">
+                              <label>
+                                   <input type="checkbox" style="top: -10%; left: -45%;
+                                        width: 100%; height: 100%; margin: 0px; padding: 0px; "> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lembre de mim
+                              </label>
+                         </div>
+                    </div>
+                    <div class="col-xs-12">
+                         <button type="submit" class="btn bg-orange btn-block">Entrar</button>
+                    </div>
+               </div>
+          </form>
+
+          <!-- Autenticação com Facebook e Google+ -->
+          <!-- "Esqueci minha senha" -->
+          <!--
+               <div class="social-auth-links text-center">
+                    <p>- OR -</p>
+                    <a href="#" class="btn btn-block btn-social btn-facebook btn-flat">
+                         <i class="fa fa-facebook"></i> Entre com o Facebook</a>
+                    <a href="#" class="btn btn-block btn-social btn-google btn-flat">
+                         <i class="fa fa-google-plus"></i> Entre com o Google+</a>
+               </div>
+
+               <a href="#">Esqueci minha senha</a>
+               <br>
+               -->
+          <br>
+          <a href="/#!/registrar" class="text-center">Registrar novo usuário</a>
+     </div>
+</div>

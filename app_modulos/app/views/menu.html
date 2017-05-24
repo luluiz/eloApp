@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <!-- definição do menu-->
-<section class="sidebar">
-     <ul class="sidebar-menu">
-          <!-- DASHBOARD -->
-          <li>
-               <!-- ui-sref - stateRef - referência de estados criado dentro de routes.js-->
-               <a ui-sref="painel">
-                    <i class="fa fa-dashboard"></i>
-                    <span>Painel</span>
-               </a>
-          </li>
+<section class="main-sidebar" ui-view="menu">
+     <div class="sidebar">
+          <ul class="sidebar-menu">
+               <!-- DASHBOARD -->
+               <li>
+                    <!-- ui-sref - stateRef - referência de estados criado dentro de routes.js-->
+                    <a ui-sref="main.painel">
+                         <i class="fa fa-dashboard"></i>
+                         <span>Painel</span>
+                    </a>
+               </li>
 
-          <!-- CICLO DE PAGAMENTOS  -->
-          <li class="treeview">
-               <a href>
-                    <i class="fa fa-edit"></i>
-                    <span>Ciclo de Pagamentos</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-               </a>
-               <ul class="treeview-menu">
-                    <li>
-                         <!-- ui-sref - stateRef - referência de estados criado dentro de routes.js-->
-                         <a ui-sref="billingCycle"><i class="fa fa-usd"></i>Cadastros</a>
-                    </li>
-               </ul>
-          </li>
+               <!-- CICLO DE PAGAMENTOS  -->
+               <li class="treeview">
+                    <a href>
+                         <i class="fa fa-edit"></i>
+                         <span>Ciclo de Pagamentos</span>
+                         <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                         <li>
+                              <!-- ui-sref - stateRef - referência de estados criado dentro de routes.js-->
+                              <a ui-sref="main.billingCycle"><i class="fa fa-usd"></i>Cadastros</a>
+                         </li>
+                    </ul>
+               </li>
 
-          <!-- PAGAMENTO -->
-          <li>
-               <!-- ui-sref - stateRef - referência de estados criado dentro de routes.js-->
-               <a ui-sref="pagamento">
-                    <i class="fa fa-money"></i>
-                    <span>Pagamentos</span>
-               </a>
-          </li>
-
-     </ul>
+               <!-- PAGAMENTO -->
+               <li>
+                    <!-- ui-sref - stateRef - referência de estados criado dentro de routes.js-->
+                    <a ui-sref="main.pagamento">
+                         <i class="fa fa-money"></i>
+                         <span>Pagamentos</span>
+                    </a>
+               </li>
+          </ul>
+     </div>
 </section>

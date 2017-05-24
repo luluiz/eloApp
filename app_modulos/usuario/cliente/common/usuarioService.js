@@ -11,11 +11,7 @@
       };
 
       const login = function (url, registrosUsuario) {
-         return $http.post(url, registrosUsuario).then(function (response) {
-            // código no controlador
-         }).catch(function (response) {
-            msgs.addError(response.data.message);
-         });
+         return $http.post(url, registrosUsuario);
       };
 
       return {

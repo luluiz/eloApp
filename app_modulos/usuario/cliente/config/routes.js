@@ -6,7 +6,8 @@
       function ($stateProvider, $urlRouterProvider) { //injeção de dependência do angular
          $stateProvider.state('login', {
             url: "/login", //atualiza a url /login
-            templateUrl: "usuario/cliente/views/index.html"
+            templateUrl: "usuario/cliente/views/login.html"
+
          }).state('registrar', {
             url: "/registrar", //atualiza a url /registrar
             templateUrl: "usuario/cliente/views/registrar.html"

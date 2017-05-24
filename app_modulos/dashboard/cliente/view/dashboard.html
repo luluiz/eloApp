@@ -8,13 +8,15 @@ contentHeader.js com nome de contentHeader definida usando notação CamelCase -
 <!-- declaração do componente value-box definido no arquivo
 valueBox.js com nome de valueBox usando notação CamelCase sendo
 controlada pelo controller DashboardCtrl -->
-
-<section class="content" ng-controller="DashboardCtrl as dashboard">
+<section class="content-wrapper" ng-controller="DashboardCtrl as dashboard">
      <!--declaração de uma expressão do angular no value utlizando filtro: duas casas
   decimais para a variavel crédito -->
-     <div class="row">
-          <value-box grid="12 12 6 4" color-class="bg-green" icon-class="fa fa-bank " value="R$ {{ dashboard.credit | number: 2 }}" text="Total de Créditos"></value-box>
-          <value-box grid="12 12 6 4" color-class="bg-red" icon-class="fa fa-credit-card " value="R$ {{ dashboard.debt | number: 2 }}" text="Total de Débitos"></value-box>
-          <value-box grid="12 12 6 4" color-class="bg-blue" icon-class="fa fa-money " value="R$ {{ dashboard.total | number: 2 }}" text="Valor Consolidado"></value-box>
+
+     <div class="content">
+          <div class="row">
+               <value-box grid="12 12 6 4" color-class="bg-green" icon-class="fa fa-bank " value="R$ {{ dashboard.credit | number: 2 }}" text="Total de Créditos"></value-box>
+               <value-box grid="12 12 6 4" color-class="bg-red" icon-class="fa fa-credit-card " value="R$ {{ dashboard.debt | number: 2 }}" text="Total de Débitos"></value-box>
+               <value-box grid="12 12 6 4" color-class="bg-blue" icon-class="fa fa-money " value="R$ {{ dashboard.total | number: 2 }}" text="Valor Consolidado"></value-box>
+          </div>
      </div>
 </section>
