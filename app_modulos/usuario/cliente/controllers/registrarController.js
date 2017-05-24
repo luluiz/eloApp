@@ -16,14 +16,15 @@
          usuarioService.create(url, vm.registrosUsuario).then(function (response) {
             if (response.data.success) {
                msgs.addSuccess(response.data.message);
+
+               // Redireciona para login após 1500 ms NAO TA FUNCIONANDO
+               $timeout(function () {
+                  $location.path('/#!/login').replace();
+               }, 1500);
             } else {
                msgs.addError(response.data.message);
             }
 
-            // Redireciona para login após 1500 ms NAO TA FUNCIONANDO
-            $timeout(function () {
-               $location.path('/');
-            }, 1500);
          }).catch(function (response) {
             msgs.addError(response.data.message);
          });
