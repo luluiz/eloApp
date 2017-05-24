@@ -7,7 +7,7 @@
          $stateProvider.state('main.billingCycle', {
             //'main.billingCycle' state matches "/billingCycle". The urls were not combined because ^ was used. Else: without ^ 'main/billingCycle'
             url: "^/billingCycles?page", //atualiza a url /billingCycles
-            templateUrl: "billingCycle/cliente/view/tabs.html" //carregar o template que ta dentro
+            templateUrl: "billingCycle/cliente/views/tabs.html" //carregar o template que ta dentro
             //de billingCycle/tabs.html jogando dentro do ui-view presente dentro do
             //index.html
          });
