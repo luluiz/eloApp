@@ -28,7 +28,7 @@
             }
             //de dashboard/dashboard.html jogando dentro do ui-view presente dentro do index.html
          });
-         $urlRouterProvider.otherwise('/main.painel'); //estado padrão caso não encontre os estados
+         $urlRouterProvider.otherwise('/login'); //estado padrão caso não encontre os estados
       }
    ]);
 

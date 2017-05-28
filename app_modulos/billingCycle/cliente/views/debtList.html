@@ -1,40 +1,37 @@
 <!DOCTYPE html>
 <!-- Definindo a lista de créditos -->
 <div class="col-xs-12">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Valor</th>
-                <th>Status</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="debt in bcCtrl.billingCycle.debts">
-                <td>
-                    <input ng-model="debt.name" class="form-control" placeholder="Informe o Nome" ng-readonly="bcCtrl.tabDelete || bcCtrl.tabView" />
-                </td>
-                <td>
-                    <input ng-model="debt.value" class="form-control" placeholder="Informe o Valor" ng-change="bcCtrl.calculateValues()" ng-readonly="bcCtrl.tabDelete || bcCtrl.tabView" type="number" />
-                </td>
-                <td>
-                    <select ng-model="debt.status" class="form-control" ng-disabled="bcCtrl.tabDelete || bcCtrl.tabView">
-                       <option value="">Informe o Status</option>
-                       <option value="PAGO">PAGO</option>
-                       <option value="PENDENTE">PENDENTE</option>
-                       <option value="AGENDADO">AGENDADO</option>
-                    </select>
-                </td>
-                <td class="table-actions">
-                    <button class="btn btn-success" ng-disabled="bcCtrl.tabDelete || bcCtrl.tabView" ng-click="bcCtrl.addDebt($index)">
-                        <i class="fa fa-plus"></i></button>
-                    <button class="btn btn-warning" ng-disabled="bcCtrl.tabDelete || bcCtrl.tabView" ng-click="bcCtrl.cloneDebt($index,debt)">
-                        <i class="fa fa-clone"></i></button>
-                    <button class="btn btn-danger" ng-disabled="bcCtrl.tabDelete || bcCtrl.tabView" ng-click="bcCtrl.deleteDebt($index)">
-                        <i class="fa fa-trash-o"></i></button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+     <table class="row">
+          <tr ng-repeat="debt in bcCtrl.billingCycle.debts">
+               <td>
+                    <field id="debt.name" label="Nome" grid="12 6 3" placeholder="Informe o Nome" model="debt.name" readonly="bcCtrl.tabDelete || bcCtrl.tabView"></field>
+                    <field id="debt.value" label="Valor" grid="12 6 3" placeholder="Informe o Valor" model="debt.value" readonly="bcCtrl.tabDelete || bcCtrl.tabView" change="bcCtrl.calculateValues()"></field>
+
+                    <!-- <field-selector id="debt.status" label="Ações" grid="12 6 3" name="debt.status"
+                    optionname="option.nome" option="option" availableoptions="bcCtrl.statusPagamento.itens" optionid="option.id"
+                    model="bcCtrl.statusPagamento.itemSelecionado" selectedoption="bcCtrl.statusPagamento.itemSelecionado"></field-selector> -->
+
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                         <div class="form-group">
+                              <label>Status</label>
+                              <select id="debt.status" class="form-control" name="debt.status"
+                              ng-options="option.nome for option in bcCtrl.statusPagamento.itens track by option.id"
+                              ng-model="bcCtrl.statusPagamento.itemSelecionado"></select>
+                         </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                         <label>Ações</label>
+                         <div class="form-group">
+                              <button class="btn btn-success" ng-disabled="bcCtrl.tabDelete || bcCtrl.tabView" ng-click="bcCtrl.addDebt($index)">
+                                   <i class="fa fa-plus"></i></button>
+                              <button class="btn btn-warning" ng-disabled="bcCtrl.tabDelete || bcCtrl.tabView" ng-click="bcCtrl.cloneDebt($index,debt)">
+                                   <i class="fa fa-clone"></i></button>
+                              <button class="btn btn-danger" ng-disabled="bcCtrl.tabDelete || bcCtrl.tabView" ng-click="bcCtrl.deleteDebt($index)">
+                                   <i class="fa fa-trash-o"></i></button>
+                         </div>
+                    </div>
+               </td>
+          </tr>
+     </table>
 </div>

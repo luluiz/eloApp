@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <div class="box-body">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Mês</th>
-                <th>Ano</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!--percorrendo cada ciclo de pagamento dentro do array billingCycles-->
-            <tr ng-repeat="billingCycle in bcCtrl.billingCycles">
-                <td>{{:: billingCycle.name }}</td>
-                <td>{{:: billingCycle.month }}</td>
-                <td>{{:: billingCycle.year }}</td>
-                <td class="table-actions">
-                    <button class="btn btn-success" ng-click="bcCtrl.showTabView(billingCycle)">
-                        <i class="fa fa-eye"></i></button>
-                    <button class="btn btn-warning" ng-click="bcCtrl.showTabUpdate(billingCycle)">
-                        <i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-danger" ng-click="bcCtrl.showTabDelete(billingCycle)">
-                        <i class="fa fa-trash-o"></i></button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <!--definindo o paginador -->
-    <div class="box-footer clearfix">
-        <paginator url="/#!/billingCycles" pages="{{ bcCtrl.pages }}"></paginator>
-    </div>
+     <table class="table">
+          <thead>
+               <tr>
+                    <th>Nome</th>
+                    <th>Mês</th>
+                    <th>Ano</th>
+                    <th>Ações</th>
+               </tr>
+          </thead>
+          <tbody>
+               <!--percorrendo cada ciclo de pagamento dentro do array billingCycles-->
+               <tr ng-repeat="billingCycle in bcCtrl.billingCycles">
+                    <td>{{:: billingCycle.name }}</td>
+                    <td>{{:: billingCycle.month }}</td>
+                    <td>{{:: billingCycle.year }}</td>
+
+                    <div class="col-xs-12 col-sm-6 col-md-2">
+                         <div class="form-group">
+                              <td class="table-actions">
+                                   <button class="btn btn-success" ng-click="bcCtrl.showTabView(billingCycle)">
+                                        <i class="fa fa-eye"></i></button>
+                                   <button class="btn btn-warning" ng-click="bcCtrl.showTabUpdate(billingCycle)">
+                                        <i class="fa fa-pencil"></i></button>
+                                   <button class="btn btn-danger" ng-click="bcCtrl.showTabDelete(billingCycle)">
+                                        <i class="fa fa-trash-o"></i></button>
+                              </td>
+                         </div>
+                    </div>
+               </tr>
+          </tbody>
+     </table>
+     <!--definindo o paginador -->
+     <div class="box-footer clearfix">
+          <paginator url="/#!/billingCycles" pages="{{ bcCtrl.pages }}"></paginator>
+     </div>
 </div>
